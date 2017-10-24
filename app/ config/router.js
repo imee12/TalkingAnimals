@@ -23,8 +23,8 @@ export const ContactsStack = StackNavigator({
   Welcome: {
     screen: Welcome,
     navigationOptions: ({ navigation }) => ({
-      //title: 'Contacts',
-    //  headerLeft: <LeftDrawerButton {...navigation} />
+      title: 'Contacts',
+     headerLeft: <LeftDrawerButton {...navigation} />
     }),
   },
   // Bunny: {

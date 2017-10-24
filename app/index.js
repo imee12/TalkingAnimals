@@ -36,17 +36,40 @@
 
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
+import { TabNavigator, StackNavigator, DrawerNavigator } from 'react-navigation';
+
 
 import configureStore from './store/configureStore'
 import App from './containers/App'
+//import { ContactsStack } from './config/router';
+
 
 const store = configureStore()
+
+export const ContactsStack = StackNavigator({
+  Welcome: {
+    screen: App,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Contacts',
+     headerLeft: <LeftDrawerButton {...navigation} />
+    }),
+  },
+  // Bunny: {
+  //   screen: Bunny,
+  //   navigationOptions: ({ navigation }) => ({
+  //
+  //   }),
+  // },
+});
+
 
 export default class extends Component {
   render() {
     return (
       <Provider store={store}>
-        <App />
+        <App>
+          <ContactsStack />
+        </App>
       </Provider>
     )
   }
